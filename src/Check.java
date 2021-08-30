@@ -6,7 +6,6 @@ class Check {
 
     public static
     void checkLine(String line) throws Exception {
-        int numbers[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int countOper = 0;
         String[] styles = {"", ""};
         for (int i = 0; i < line.length(); i++) {
@@ -31,21 +30,21 @@ class Check {
             stringNums = line.split(operator);
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 10; j++) {
-                if (stringNums[i].equals(Calculate.roman[j])) {
+                if (stringNums[i].equals(Numbers.roman[j])) {
                     styles[i] = "roman";
-                    nums[i] = numbers[j];
+                    nums[i] = Numbers.arabic[j];
                     break;
                 }
-                if (stringNums[i].equals(String.valueOf(numbers[j]))) {
+                if (stringNums[i].equals(String.valueOf(Numbers.arabic[j]))) {
                     styles[i] = "arabic";
-                    nums[i] = numbers[j];
+                    nums[i] = Numbers.arabic[j];
                     break;
                 }
             }
         }
         if (nums[0] == 0 || nums[1] == 0)
             throw new MyException("nan");
-        if (styles[0].equals(styles[1]) && styles[0] != "")
+        if (styles[0].equals(styles[1]) && !"".equals(styles[0]))
             style = styles[0];
         if (style.equals(""))
             throw new MyException("mix");
