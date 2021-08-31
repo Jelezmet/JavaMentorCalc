@@ -6,7 +6,9 @@ public
 class Converter {
 
 
-        public static String intToRoman(int number) {
+        public static String intToRoman(int number) throws MyException {
+            if(number < 1)
+                throw new MyException("negative");
             if (number >= 4000 || number <= 0)
                 return null;
             StringBuilder result = new StringBuilder();
