@@ -21,17 +21,6 @@ class Calculate {
         if((Check.style).equals("arabic"))
             System.out.println(result);
         else if((Check.style).equals("roman"))
-            System.out.println(transformToRoman(result));
-    }
-
-    static String transformToRoman(int result) throws MyException {
-        if (result < 1)
-            throw new MyException("negative");
-        String romNum = "";
-        if(result <= 10)
-            romNum = Numbers.roman[result-1];
-        else
-            romNum = "x"+Numbers.roman[result-11];
-        return romNum.toUpperCase();
+            System.out.println(Converter.intToRoman(result));
     }
 }
